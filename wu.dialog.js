@@ -10,6 +10,7 @@ var dialog = wu.dialog({
 	el: el
 });
 
+dialog.open();
 dialog.close();
 
 */
@@ -44,7 +45,7 @@ dialog.close();
 			'overflow': 'auto',
 			'z-index': '9999',
 			// 'border-radius': '0.6em 0',
-			// 'box-shadow': '0 3px 10px #333',
+			'box-shadow': '0 3px 10px #333',
 			'margin': '0 1em',
 			'text-align': 'left',
 			'background': '#fff',
@@ -76,6 +77,8 @@ dialog.close();
 				marginLeft: -dialog.outerWidth()/2,
 				marginTop: -dialog.outerHeight()/2
 			});
+
+			return this;
 		};
 
 		var close = function(){
@@ -89,11 +92,13 @@ dialog.close();
 			overlay.fadeOut(function() {
 				$(this).remove();
 			});
+
+			return this;
 		};
 
 
 		// 默认初始化则打开
-		open();
+		// open();
 
 		return {
 			open: open,
