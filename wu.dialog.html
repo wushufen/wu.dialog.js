@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<title></title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="wu.dialog.js"></script>
+</head>
+<body>
+
+
+<!-- form{ -->
+<form id="dialog" class="horizontal" method="POST" action="">
+
+	<div class="form-group">
+		<label class="label">用户名</label>
+		<input class="input" type="text" name="" />
+		<p class="tip">请输入用户名</p>
+	</div>
+
+	<div class="form-group">
+		<label class="label">密码</label>
+		<input class="input" type="password" name="" />
+		<p class="tip">请输入密码</p>
+	</div>
+
+	<div class="form-group">
+		<div class="controls">
+			<a class="float-right" href="">忘记密码?</a>
+			<label>
+				<input type="checkbox" name="" />
+				记住我
+			</label>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<button class="button primary">登录</button>
+	</div>
+
+</form>
+<!-- }form -->
+
+
+<script type="text/javascript">
+	var dialog = wu.dialog({
+		el: document.getElementById('dialog')
+	});
+
+	dialog.close();
+</script>
+
+
+</body>
+</html>
