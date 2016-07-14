@@ -2,7 +2,7 @@
 对话框
 404315887@qq.com
 2014.11.7
-2015.12.19
+2016.4.8
 
 var dialog = wu.dialog({
 	css: {}, // 自定义 css
@@ -10,6 +10,8 @@ var dialog = wu.dialog({
 	isOverlayClickClose: true, // 遮罩层点击关闭
 	el: null, // 对话框元素 #id
 	url: null, // 动态内容 'dialog.html'
+	iframe: true, // url 是否用iframe
+	scrolling: 'no', // iframe 是否滚动
 	show: false // 是否立即显示
 });
 dialog.init({...})
@@ -19,7 +21,7 @@ dialog.close()
 
 var d2 = wu.dialog.new({...});
 
-<a wu-dialog="{}" href="dialogUrl">dilaog</a>
+<a wu-dialog="{}" href="dialogUrl">dialog</a>
 */
 + function(wu) {
 	var setting = {
@@ -32,6 +34,7 @@ var d2 = wu.dialog.new({...});
 		el: null, // 对话框元素 #id
 		url: null, // 动态内容 'dialog.html'
 		iframe: true, // url 是否用iframe
+		scrolling: 'no',
 		// loading: null,
 		// ok: false, // 是否显示按钮, function 回调
 		// cancel: false, // 同上
@@ -97,7 +100,7 @@ var d2 = wu.dialog.new({...});
 			if (options.url) {
 				// iframe
 				if (options.iframe) {
-					var $iframe = $('<iframe style="display:block;max-width:100%" src="' + options.url + '" scrolling="no" frameborder="0" allowtransparency="true"></iframe>');
+					var $iframe = $('<iframe style="display:block;max-width:100%" src="' + options.url + '" scrolling="' + options.scrolling + '" frameborder="0" allowtransparency="true"></iframe>');
 					$iframe[0].onload = function() {
 						try {
 							var htmlEl = this.contentDocument.getElementsByTagName('html')[0];
